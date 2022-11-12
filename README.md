@@ -9,6 +9,8 @@ tar -xvf test_png.tar.xz
 
 mkdir data 
 
+mkdir results
+
 python png_folder_to_bin.py 
 
 make
