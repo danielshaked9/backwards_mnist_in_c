@@ -121,7 +121,7 @@ void worker_show(Worker* a, Img** imgs,int num_of_batch_imgs){
         Matrix* output = matrix_create(10, 1);
         output->entries[cur_img->label][0] = 1;
         //img_data=scale(256,cur_img->img_data);
-        sprintf(buffer,"results/res%d%d.csv",i,cur_img->label);
+        sprintf(buffer,"results/res%d-label_%d.csv",i,cur_img->label);
         Matrix* prediction =network_predict(a->net, output);
         double max=prediction->entries[matrix_argmax(prediction)][0];
         matrix_save(prediction,buffer);
