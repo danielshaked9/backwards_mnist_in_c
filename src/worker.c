@@ -68,7 +68,7 @@ void worker_make(Worker* a, Img **imgs,int batch_size){
         if(i%100==0) printf("\r%d",i);
 	}
     printf("worker make complete\n");
-    network_save_bin(a->net,"/home/zen/Desktop/gpu_core/bin");
+    network_save_bin(a->net,"bin");
 
     network_free(a->net);
 }
@@ -80,17 +80,9 @@ void worker_talk_batch_imgs(Worker* a, Worker* b, Img **imgs, int batch_size) {
 		Matrix* img_data = matrix_flatten(cur_img->img_data, 0); // 0 = flatten to column vector
 		Matrix* output = matrix_create(10, 1);
 		output->entries[cur_img->label][0] = 1;
-        //worker_talk(img_data,output,a,b);
-        //network_train(a->net,output, img_data);
 		matrix_free(output);
 		matrix_free(img_data);
-        
-        //fflush(stdout);
-        //if(i%1000==0 && i!=0){ 
-        //    network_save_bin(b->net,"/home/zen/Desktop/gpu_core/bin");
-        //    network_free(b->net);
-        //    b->net=network_load_bin("/home/zen/Desktop/gpu_core/bin");
-        //}
+
         fflush(stdout);
         if(i%100==0) printf("\r%d",i);
 	}
@@ -134,7 +126,6 @@ void worker_show(Worker* a, Img** imgs,int num_of_batch_imgs){
         double max=prediction->entries[matrix_argmax(prediction)][0];
         matrix_save(prediction,buffer);
         matrix_free(prediction);
-        //matrix_to_png(buffer,scale(1/(a->net->learning_rate),prediction),max);
     }
-    //network_free(a->net);
+
 }
