@@ -4,12 +4,12 @@ wrritten on linux system
 
 clone into project
 
-tar -xvf train_png.tar.xz
-tar -xvf test_png.tar.xz
-mkdir data
-python png_folder_to_bin.py 
-make
-make run
+tar -xvf train_png.tar.xz \n
+tar -xvf test_png.tar.xz \n
+mkdir data \n
+python png_folder_to_bin.py \n
+make\n
+make run\n
 
 
 to view the result run display_img.py
