@@ -4,7 +4,7 @@
 #include "include/img.h"
 #include "include/ops.h"
 #include "include/activations.h"
-#include <GL/glut.h>
+
 
 
 
