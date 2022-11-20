@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <errno.h>
 #include <stdlib.h>
-#include <GL/glut.h>
+
 typedef struct {
 	Matrix* img_data;
 	int label;
